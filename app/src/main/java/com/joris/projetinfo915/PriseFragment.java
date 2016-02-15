@@ -42,14 +42,14 @@ public class PriseFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    private View.OnClickListener changeEtat = new View.OnClickListener(){
+    private View.OnClickListener changeEtat = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             //Si la prise est allumée
-            if (priseEtat == true){
+            if (priseEtat) {
                 priseEtat = false;
                 powerButton.setBackgroundResource(R.drawable.power_red);
-            }else{
+            } else {
                 priseEtat = true;
                 powerButton.setBackgroundResource(R.drawable.power_green);
             }
