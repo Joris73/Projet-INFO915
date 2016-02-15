@@ -42,10 +42,8 @@ public class PhilipsFragment extends Fragment {
 
         LobsterPicker lobsterPicker = (LobsterPicker) view.findViewById(R.id.lobsterpicker);
         final LobsterShadeSlider shadeSlider = (LobsterShadeSlider) view.findViewById(R.id.shadeslider);
-        LobsterOpacitySlider opacitySlider = (LobsterOpacitySlider) view.findViewById(R.id.opacityslider);
 
         lobsterPicker.addDecorator(shadeSlider);
-        lobsterPicker.addDecorator(opacitySlider);
 
         Button onButton = (Button) view.findViewById(R.id.btn_on_philips);
         Button offButton = (Button) view.findViewById(R.id.btn_off_philips);
