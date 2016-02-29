@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private void setupCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(
                 R.id.collapse_toolbar);
-
         collapsingToolbar.setTitleEnabled(false);
     }
 
@@ -37,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new PhilipsFragment(), "Philips");
         adapter.addFrag(new PriseFragment(), "Prise");
         adapter.addFrag(new VoletFrangment(), "Volet");
+        adapter.addFrag(new TemperatorFragment(), "Temperature");
         viewPager.setAdapter(adapter);
     }
 }
