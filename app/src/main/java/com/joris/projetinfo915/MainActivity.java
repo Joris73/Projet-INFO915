@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new PhilipsFragment(), "Philips");
         adapter.addFrag(new PriseFragment(), "Prise");
-        adapter.addFrag(new VoletFrangment(), "Volet");
+        adapter.addFrag(new VoletFragment(), "Volet");
         viewPager.setAdapter(adapter);
     }
 }

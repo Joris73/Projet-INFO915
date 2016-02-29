@@ -12,11 +12,27 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/toto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="sdfsgsdfgsfdgsfd" />
+        <ImageView
+            android:id="@+id/volet_gif"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:layout_width="219dp"
+            android:layout_height="315dp"
+            android:background="@drawable/volet_close"
+            />
+
+        <ImageView
+            android:id="@+id/up_button"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@drawable/ic_action_arrow_top"
+            />
+
+        <ImageView
+            android:id="@+id/down_button"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:background="@drawable/ic_action_arrow_bottom"/>
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
