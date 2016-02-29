@@ -23,7 +23,7 @@ public class PriseFragment extends Fragment {
     private ImageView powerButton;
 
     private String API_PRISE_TRUE = "http://192.168.1.133:8080/prise/bcdbd910189245228ffbc2d99e4a7b1d/incendium";
-    private String API_PRISE_FALSE = "http://192.168.1.133:8080/prise/bcdbd910189245228ffbc2d99e4a7b1d/extinctio";
+    private String API_PRISE_FALSE = "http://192.168.1.133:8080/prise/bcdbd910189245228ffbc2d99e4a7b1d/exstinctio";
 
     public PriseFragment() {
 
@@ -55,11 +55,11 @@ public class PriseFragment extends Fragment {
             //Si la prise est allumée
             if (priseEtat) {
                 priseEtat = false;
-                new DownloadMachin().execute(API_PRISE_TRUE);
+                new DownloadMachin().execute(API_PRISE_FALSE);
                 powerButton.setBackgroundResource(R.drawable.power_red);
             } else {
                 priseEtat = true;
-                new DownloadMachin().execute(API_PRISE_FALSE);
+                new DownloadMachin().execute(API_PRISE_TRUE);
                 powerButton.setBackgroundResource(R.drawable.power_green);
             }
         }
