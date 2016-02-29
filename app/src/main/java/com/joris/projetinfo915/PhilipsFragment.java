@@ -23,8 +23,8 @@ import com.larswerkman.lobsterpicker.sliders.LobsterShadeSlider;
  */
 public class PhilipsFragment extends Fragment {
 
-    private String API_PHILIPS_TRUE = "http://192.168.1.127:8080/lampe/True";
-    private String API_PHILIPS_FALSE = "http://192.168.1.127:8080/lampe/False";
+    private String API_PHILIPS_TRUE = "http://192.168.1.133:8080/lampe/True";
+    private String API_PHILIPS_FALSE = "http://192.168.1.133:8080/lampe/False";
 
     public PhilipsFragment() {
 

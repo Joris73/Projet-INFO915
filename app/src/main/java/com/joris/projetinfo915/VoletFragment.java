@@ -1,46 +1,53 @@
 package com.joris.projetinfo915;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.felipecsl.gifimageview.library.GifImageView;
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.gson.Gson;
 
 /**
  * Created by jobos on 05/02/2016.
  */
-public class PriseFragment extends Fragment {
+public class VoletFragment extends Fragment {
 
-    private boolean priseEtat = false;
-    private ImageView powerButton;
+    private ImageView voletGif;
+    private ImageView upButton;
+    private ImageView downButton;
+    private TextView voletText;
 
-    private String API_PRISE_TRUE = "http://192.168.1.133:8080/prise/bcdbd910189245228ffbc2d99e4a7b1d/incendium";
-    private String API_PRISE_FALSE = "http://192.168.1.133:8080/prise/bcdbd910189245228ffbc2d99e4a7b1d/exstinctio";
+    private String API_VOLET_TRUE = "http://192.168.1.133:8080/muscle/apertus";
+    private String API_VOLET_FALSE = "http://192.168.1.133:8080/muscle/propinquus";
 
-    public PriseFragment() {
+    public VoletFragment() {
 
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_prise, container, false);
-        powerButton = (ImageView) view.findViewById(R.id.power_button);
-        powerButton.setOnClickListener(changeEtat);
+        View view = inflater.inflate(R.layout.fragment_volet, container, false);
+        voletGif = (ImageView) view.findViewById(R.id.volet_gif);
+        upButton = (ImageView) view.findViewById(R.id.up_button);
+        downButton = (ImageView) view.findViewById(R.id.down_button);
+        voletText = (TextView) view.findViewById(R.id.volet_text);
+        upButton.setOnClickListener(openVolet);
+        downButton.setOnClickListener(closeVolet);
         return view;
     }
 
@@ -49,19 +56,19 @@ public class PriseFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    private View.OnClickListener changeEtat = new View.OnClickListener() {
+    private View.OnClickListener openVolet = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //Si la prise est allumée
-            if (priseEtat) {
-                priseEtat = false;
-                new DownloadMachin().execute(API_PRISE_FALSE);
-                powerButton.setBackgroundResource(R.drawable.power_red);
-            } else {
-                priseEtat = true;
-                new DownloadMachin().execute(API_PRISE_TRUE);
-                powerButton.setBackgroundResource(R.drawable.power_green);
-            }
+            new DownloadMachin().execute(API_VOLET_TRUE);
+            voletGif.setBackgroundResource(R.drawable.volet_open);
+        }
+    };
+
+    private View.OnClickListener closeVolet = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            new DownloadMachin().execute(API_VOLET_FALSE);
+            voletGif.setBackgroundResource(R.drawable.volet_close);
         }
     };
 
@@ -85,6 +92,8 @@ public class PriseFragment extends Fragment {
         protected void onPostExecute(String result) {
             if (result != null) {
                 //JsonElement jsonResult = new JsonParser().parse(result);
+                Log.w("volet", result);
+                voletText.setText(result);
                 Gson gson = new Gson();
             } else {
             }
@@ -98,5 +107,4 @@ public class PriseFragment extends Fragment {
         protected void onProgressUpdate(Void... values) {
         }
     }
-
 }
