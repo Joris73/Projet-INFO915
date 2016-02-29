@@ -1,13 +1,13 @@
 package com.joris.projetinfo915;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import android.content.Context;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.content.Context;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class ValueMapper {
     private static ValueMapper instance;

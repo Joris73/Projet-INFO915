@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new PhilipsFragment(), "Philips");
         adapter.addFrag(new PriseFragment(), "Prise");
         adapter.addFrag(new VoletFragment(), "Volet");
+        adapter.addFrag(new TemperatorFragment(), "Temperature");
         viewPager.setAdapter(adapter);
     }
 }

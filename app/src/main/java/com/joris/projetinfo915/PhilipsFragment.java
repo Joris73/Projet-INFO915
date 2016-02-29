@@ -12,10 +12,7 @@ import android.widget.Button;
 
 import com.github.kevinsawicki.http.HttpRequest;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.larswerkman.lobsterpicker.LobsterPicker;
-import com.larswerkman.lobsterpicker.sliders.LobsterOpacitySlider;
 import com.larswerkman.lobsterpicker.sliders.LobsterShadeSlider;
 
 /**
